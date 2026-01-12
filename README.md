@@ -40,19 +40,20 @@ Other Corruption
 Pothole
 
 **🧠 Methodology: Curriculum Learning Strategy**
+
 We adopted a multi-stage training strategy moving from aggressive regularization to fine-grained precision tuning.
 
-Stage 1: Robust Feature Learning (Baseline)
+**Stage 1:** Robust Feature Learning (Baseline)
 
-Goal: Prevent overfitting and learn invariant features using high-intensity augmentations.
-
-
-Resolution: 640x640 pixels.
+**Goal:** Prevent overfitting and learn invariant features using high-intensity augmentations.
 
 
-Compute: Distributed Data Parallel (DDP) across 2x NVIDIA Tesla T4 GPUs.
+**Resolution:** 640x640 pixels.
 
-Augmentation:
+
+**Compute:** Distributed Data Parallel (DDP) across 2x NVIDIA Tesla T4 GPUs.
+
+**Augmentation:**
 
 
 Mosaic (0.8): High probability of stitching images to simulate complex contexts.
@@ -63,26 +64,26 @@ Mixup (0.1): Blending images to soften decision boundaries.
 
 Scale (0.5) & Translate (0.1): Aggressive geometric distortions.
 
-Stage 2: Precision Fine-Tuning (Refinement)
+**Stage 2: Precision Fine-Tuning (Refinement)**
 
-Goal: Optimize for the strict mAP50-95 metric by preserving fine structural details of cracks.
-
-
-
-Rationale: Aggressive augmentations (like Mixup) can distort crack topology, hindering localization.
-
-
-Adjustments:
-
-
-Mosaic: Reduced to 0.1 to allow the model to see "whole" road sections.
+**Goal:** Optimize for the strict mAP50-95 metric by preserving fine structural details of cracks.
 
 
 
-Mixup: Disabled (0.0).
+**Rationale:** Aggressive augmentations (like Mixup) can distort crack topology, hindering localization.
 
 
-Scale: Reduced to 0.3 to preserve natural proportions.
+**Adjustments:**
 
 
-Scheduler: Shifted to a Cosine learning rate scheduler for smoother convergence.
+**Mosaic:** Reduced to 0.1 to allow the model to see "whole" road sections.
+
+
+
+**Mixup:** Disabled (0.0).
+
+
+**Scale:** Reduced to 0.3 to preserve natural proportions.
+
+
+**Scheduler:** Shifted to a Cosine learning rate scheduler for smoother convergence.
