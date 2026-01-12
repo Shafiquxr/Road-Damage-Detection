@@ -1,10 +1,11 @@
-Road Damage Detection & Classification (RDD2022)
+**Road Damage Detection & Classification (RDD2022)**
 
-📋 Project Overview
+**📋 Project Overview**
 This project utilizes the YOLOv8-Large (YOLOv8l) architecture to detect and classify fine-grained road anomalies. We selected the Large variant to achieve a robust balance between feature extraction capability and inference speed, specifically targeting anomalies like cracks and potholes.
 
 
-👥 Team Members
+**👥 Team Members**
+
 Seshanth
 
 Satvik Padiyala
@@ -13,7 +14,7 @@ Shafiqur Rahaman
 
 Sathyanarayanan 
 
-🏗️ Model Architecture
+**🏗️ Model Architecture**
 The model is initialized with pre-trained weights (yolov8l.pt) to leverage transfer learning.
 
 
@@ -38,7 +39,7 @@ Other Corruption
 
 Pothole
 
-🧠 Methodology: Curriculum Learning Strategy
+**🧠 Methodology: Curriculum Learning Strategy**
 We adopted a multi-stage training strategy moving from aggressive regularization to fine-grained precision tuning.
 
 Stage 1: Robust Feature Learning (Baseline)
